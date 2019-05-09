@@ -1,0 +1,42 @@
+<h1 style="text-align:center;">Course in <%=@category.title%></h1>
+
+<div class="container">
+ <% @category.course.each do |catCourse|%>
+<div class="media">
+    <div class="media-left media-middle">
+        <img src="https://secure.gravatar.com/avatar/f808bc206f99b6ba71fb83a90dacb381">
+        <h3 class="panel-title">Coodinator Name: Andy Song</h3>
+    </div>
+    <div class="media-body">
+       <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><%= catCourse.name %></h3>
+            </div>
+            <div class="panel-body">
+                <b>Category:</b> <%= catCourse.category.title %>
+                <br>
+                <b>Location:</b> <%= catCourse.location %>
+                <br>
+                <b>Created:</b> <%= time_ago_in_words(catCourse.created) %> ago
+                <br>
+                <b>Prerequisite:</b> <%= catCourse.prerequisite %>
+                <br>
+                <div class="button">
+                     <!--   <%= link_to '' do %>
+                            <%= fa_icon "thumbs-o-up" %> 4
+                        <% end %>
+
+                        <%= link_to '' do %>
+                            <%= fa_icon "thumbs-o-down" %> 0
+                        <% end %>
+                        -->
+                        <%= fa_icon "thumbs-o-up" %> 4
+                        
+                        <%= fa_icon "thumbs-o-down" %> 0
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>
+</div>

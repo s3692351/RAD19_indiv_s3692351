@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  before_save { self.email = email.downcase }
   validates :name, presence: true, uniqueness: { case_sensitive: false },
                    length: { minimum: 3, maximum: 25 }
   VALID_RMIT_MAIL_REGEX = /[a-z]*.[a-z]*@rmit.edu.au/i.freeze

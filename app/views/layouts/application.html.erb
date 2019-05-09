@@ -11,7 +11,6 @@
   </head>
     <%= render 'layouts/nav' %>
   <body>
-  <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %> alert-dismissible">
          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -20,8 +19,6 @@
         <%= message %>
         </div>
       <% end %>
-      </div>
-
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>

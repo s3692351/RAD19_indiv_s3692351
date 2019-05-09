@@ -2,7 +2,7 @@
   <h1>Welcome to your Course App</h1>
   <p>Homepage for RAD Assignment 2</p>
   <p>
-  <%= link_to '#', :class=>"btn btn-primary btn-lg" do %>
+  <%= link_to signup_path, :class=>"btn btn-primary btn-lg" do %>
     <%= fa_icon "cog" %> Sign Up now
   <% end %>
   </p>
@@ -21,7 +21,7 @@
   <br>
   <div class="row">
      <div class="col-xs-6 col-md-4">
-      <%= link_to '#', :class=>"btn btn-primary btn-lg" do %>
+      <%= link_to courses_path, :class=>"btn btn-primary btn-lg" do %>
         <%= fa_icon "book" %> Browse Courses
       <% end %>
       </div>

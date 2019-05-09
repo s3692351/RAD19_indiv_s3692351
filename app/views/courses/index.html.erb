@@ -1,0 +1,10 @@
+<div class="container">
+<h1 style="text-align:center;">All Courses</h1>
+   <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><%= link_to 'Course', courses_path%></li>
+        <li role="presentation"><%= link_to 'Coordinators', '#' %></li>
+    </ul>
+    <div id="content">
+        <%= render 'course' %>
+    </div>
+</div>

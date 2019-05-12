@@ -15,4 +15,10 @@ class User < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX,
                                  message: 'must contain at least a lowercase letter,
                                 a uppercase, a digit, a special character and 8+ characters' }
+
+  def self.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end

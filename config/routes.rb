@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'signup', to: 'users#new'
   get 'contacts', to: 'contact#index'
-  post 'contacts', to:'contact#create'
+  post 'contacts', to: 'contact#create'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
   resources :users
   resources :categories, except: :index
   resources :courses

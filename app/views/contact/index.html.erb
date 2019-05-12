@@ -18,7 +18,7 @@
       <%= f.label :email %>
       <%= f.email_field :email, placeholder:"Enter Email", :class=>"form-control" %>
       <%= f.label :message %>
-      <%= f.text_field :message, placeholder:"Enter Message", :class=>"form-control" %>
+      <%= f.text_area :message, placeholder:"Enter Message", :class=>"form-control",rows:5 ,cols:8 %>
       <%= f.submit "Send", class: "btn btn-primary", name: 'create' %>
     <% end %>
 </div>

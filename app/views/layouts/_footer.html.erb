@@ -8,11 +8,11 @@
       <p class="footer-links">
         <%= link_to 'Home', root_path %>
         ·
-        <%= link_to 'Category', '#' %>
+        <%= link_to 'Category', categories_path %>
         ·
         <%= link_to 'Locations', '#' %>
         ·
-        <%= link_to 'About', "#" %>
+        <%= link_to 'Contact Us', contacts_path %>
       </p>
 
       <p class="footer-company-name">Course App &copy; 2019</p>
@@ -37,16 +37,4 @@
       </div>
 
     </div>
-
-			<div class="footer-right">
-
-				<p>Contact Us</p>
-        <%= form_tag("#", method: "post") do %>
-          <input type="text" placeholder="Name">
-					<input type="text" name="email" placeholder="Email" />
-					<textarea name="message" placeholder="Message"></textarea>
-					<button>Send</button>
-        <% end %>
-			</div>
-
 </footer>

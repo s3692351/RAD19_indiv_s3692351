@@ -7,6 +7,7 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     @courses = Course.all
+    @user = User.first
   end
 
   # GET /courses/1

@@ -1,7 +1,7 @@
 <% @courses.each do |course|%>
 <div class="media">
     <div class="media-left media-middle">
-        <img src="https://secure.gravatar.com/avatar/f808bc206f99b6ba71fb83a90dacb381">
+        <%= gravatar_for @user %>
         <h3 class="panel-title">Coodinator Name: Andy Song</h3>
     </div>
     <div class="media-body">

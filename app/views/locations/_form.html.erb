@@ -1,0 +1,10 @@
+<div class="row">
+<%= render 'shared/error_messages', obj:@location %>
+  <div class="col-md-6 col-md-offset-3 box">
+    <%= form_for (@location) do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :name, :class=>"form-control", placeholder:"Enter Location Name" %>
+        <%= f.submit "Create new Location", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

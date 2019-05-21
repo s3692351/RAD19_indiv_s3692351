@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  resources :locations
+  resources :locations, except: :index
   resources :users
   resources :categories, except: :index
   resources :courses

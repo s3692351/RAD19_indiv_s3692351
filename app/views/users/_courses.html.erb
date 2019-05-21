@@ -1,8 +1,8 @@
-<% @courses.each do |course|%>
+<% @user.courses.each do |course|%>
 <div class="media">
     <div class="media-left media-middle">
         <%= gravatar_for @user %>
-        <h3 class="panel-title">Coodinator Name: Andy Song</h3>
+        <h3 class="panel-title">Coodinator Name: <%= @user.name %></h3>
     </div>
     <div class="media-body">
        <div class="panel panel-default">

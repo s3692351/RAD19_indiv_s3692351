@@ -1,0 +1,46 @@
+<div class="container">
+  <h1 style="text-align:center;">Courses scheduled in location <%= @location.name %></h1>
+  <% @location.courses.each do |location|%>
+  <% provide(:title, location.name) %>
+  <div class="media">
+      <div class="media-left media-middle">
+          <%= gravatar_for location.user %>
+          <h3 class="panel-title">Coodinator Name: <%= location.user.name %></h3>
+      </div>
+      <div class="media-body">
+        <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h3 class="panel-title"><%= location.name %></h3>
+              </div>
+              <div class="panel-body">
+                  <b>Category:</b> <%= location.category.title %>
+                  <br>
+
+                  <b>Location:</b> <%= location.location.name %>
+                  <br>
+                  <b>Created:</b> <%= time_ago_in_words(location.created) %> ago
+                  <br>
+                  <b>Prerequisite:</b> <%= location.prerequisite %>
+                  <br>
+                  <% if logged_in? %>
+                      <div class="button">
+                          <%= link_to '' do %>
+                              <%= fa_icon "thumbs-o-up" %> 4
+                          <% end %>
+                          <%= link_to '' do %>
+                              <%= fa_icon "thumbs-o-down" %> 0
+                          <% end %>
+                      </div>
+                  <% else %>
+                      <div class="button">
+                          <%= fa_icon "thumbs-o-up" %> 4
+                          <%= fa_icon "thumbs-o-down" %> 0
+                      </div>
+                  <% end %>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+  <% end %>
+</div>

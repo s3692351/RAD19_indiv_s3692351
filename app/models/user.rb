@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :courses
   before_save { self.email = email.downcase }
   validates :name, presence: true, uniqueness: { case_sensitive: false },
                    length: { minimum: 3, maximum: 25 }

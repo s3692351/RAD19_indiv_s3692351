@@ -9,8 +9,8 @@ class ContactController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactsMailer.general_message(@contact).deliver
-      flash.now[:success] = 'We will be back to you shortly.'
-      render 'root'
+      flash[:success] = 'We will be back to you shortly.'
+      redirect_to root_path
     else
       render 'new'
     end

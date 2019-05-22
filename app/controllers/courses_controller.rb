@@ -22,7 +22,10 @@ class CoursesController < ApplicationController
   end
 
   # GET /courses/1/edit
-  def edit; end
+  def edit
+    @category = Category.all 
+    @location = Location.all
+  end
 
   # POST /courses
   # POST /courses.json
@@ -40,6 +43,7 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1.json
   def update
     respond_to do |format|
+      @course.courseImage.attach(params[:courseImage])
       if @course.update(course_params)
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
@@ -69,7 +73,6 @@ class CoursesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def course_params
-    byebug
-    params.require(:course).permit(:name,:prerequisite,:description,:category,:location)
+    params.require(:course).permit(:name,:prerequisite,:description,:category,:location,:courseImage)
   end
 end

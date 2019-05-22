@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Course < ApplicationRecord
+  has_one_attached :courseImage
   belongs_to :category
   belongs_to :location
   belongs_to :user

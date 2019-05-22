@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 class Category < ApplicationRecord
-  has_many :course
+  has_and_belongs_to_many :courses
   validates :title, presence: true, length: { maximum: 20 }
 end

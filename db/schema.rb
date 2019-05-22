@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_21_085133) do
+ActiveRecord::Schema.define(version: 2019_05_22_093738) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 2019_05_21_085133) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "categories_courses", id: false, force: :cascade do |t|
+    t.integer "course_id", null: false
+    t.integer "category_id", null: false
+    t.index ["course_id", "category_id"], name: "index_categories_courses_on_course_id_and_category_id"
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -49,13 +55,15 @@ ActiveRecord::Schema.define(version: 2019_05_21_085133) do
     t.string "name"
     t.string "prerequisite"
     t.string "description"
-    t.integer "category_id"
     t.datetime "created"
-    t.integer "location_id"
     t.integer "user_id"
-    t.index ["category_id"], name: "index_courses_on_category_id"
-    t.index ["location_id"], name: "index_courses_on_location_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
+  end
+
+  create_table "courses_locations", id: false, force: :cascade do |t|
+    t.integer "course_id", null: false
+    t.integer "location_id", null: false
+    t.index ["course_id", "location_id"], name: "index_courses_locations_on_course_id_and_location_id"
   end
 
   create_table "locations", force: :cascade do |t|

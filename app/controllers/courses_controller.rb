@@ -31,6 +31,9 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    byebug
+    @category = Category.all
+    @location = Location.all
     if @course.save
       flash[:success] = "New Course #{@course.name} added."
       redirect_to root_path
@@ -73,6 +76,6 @@ class CoursesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def course_params
-    params.require(:course).permit(:name,:prerequisite,:description,:category,:location,:courseImage)
+    params.require(:course).permit(:name,:prerequisite,:description,:category_id,:location_id,:courseImage)
   end
 end

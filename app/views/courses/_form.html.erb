@@ -24,9 +24,12 @@
     <b>Location:</b><br>
     <% @location.each do |location| %>
       <%= f.label :location, "#{location.name}", :style=>"padding-left:0px;" %>
-      <%= f.check_box :location_id, {:style=>"width:5%;"}, "#{location.id}","#{location.id}" %>
+      <%# f.check_box :location_id, {:style=>"width:5%;"}, "#{location.id}","#{location.id}" %>
+      <%= f.check_box :location,{:style=>"width:5%;"}, { multiple: true }, location.id %>
       <br>
     <% end %>
+
+    <%# f.check_box :location, { multiple: true }, @location.all.pluck(:id) %>
   </div>
   <div class="form-group">
     <%= f.label "Course Image" %>

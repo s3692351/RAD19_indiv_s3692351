@@ -1,7 +1,7 @@
-<h1 style="text-align:center;">Course in <%=@category.title%></h1>
+<h1 style="text-align:center;">Courses in <%=@category.title%></h1>
 
 <div class="container">
- <% @category.course.each do |catCourse|%>
+ <% @category.courses.each do |catCourse|%>
 <div class="media">
     <div class="media-left media-middle">
         <img src="https://secure.gravatar.com/avatar/f808bc206f99b6ba71fb83a90dacb381">
@@ -13,26 +13,30 @@
                 <h3 class="panel-title"><%= catCourse.name %></h3>
             </div>
             <div class="panel-body">
-                <b>Category:</b> <%= catCourse.category.title %>
+                <b>Category:</b> <%catCourse.categories.each {|cat| %><%= cat.title %><%} %>
                 <br>
-                <b>Location:</b> <%= catCourse.location.name %>
+                <b>Location:</b><%catCourse.locations.each {|loc| %><%= loc.name%> <%} %>
                 <br>
                 <b>Created:</b> <%= time_ago_in_words(catCourse.created) %> ago
                 <br>
                 <b>Prerequisite:</b> <%= catCourse.prerequisite %>
                 <br>
                 <div class="button">
-                     <!--   <%= link_to '' do %>
+                <% if logged_in? %>
+                    <div class="button">
+                        <%= link_to '' do %>
                             <%= fa_icon "thumbs-o-up" %> 4
                         <% end %>
-
                         <%= link_to '' do %>
                             <%= fa_icon "thumbs-o-down" %> 0
                         <% end %>
-                        -->
+                    </div>
+                <% else %>
+                    <div class="button">
                         <%= fa_icon "thumbs-o-up" %> 4
-                        
                         <%= fa_icon "thumbs-o-down" %> 0
+                    </div>
+                <% end %>
                 </div>
             </div>
         </div>

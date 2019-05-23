@@ -13,11 +13,10 @@
                   <h3 class="panel-title"><%= location.name %></h3>
               </div>
               <div class="panel-body">
-                  <b>Category:</b> <%= location.category.title %>
-                  <br>
-
-                  <b>Location:</b> <%= location.location.name %>
-                  <br>
+                    <b>Category:</b> <%location.categories.each {|cat| %><%= cat.title %><%} %>
+                    <br>
+                    <b>Location:</b><%location.locations.each {|loc| %><%= loc.name%> <%} %>
+                    <br>
                   <b>Created:</b> <%= time_ago_in_words(location.created) %> ago
                   <br>
                   <b>Prerequisite:</b> <%= location.prerequisite %>

@@ -15,17 +15,23 @@
   <div class="checkbox" style="padding-left:0px;">
     <b>Category:</b><br>
     <% @category.each do |category| %>
-      <%= f.label :cateogry, "#{category.title}", :style=>"padding-left:0px;" %>
-      <%= f.check_box :category_id, {:style=>"width:5%;"}, "#{category.title}","#{category.title}" %>
+      <%= check_box_tag "category[category][]",category,@course.categories.include?(category) %>
+      <%= category.title %>
+      <%#= f.label :category, "#{category.title}", :style=>"padding-left:0px;" %>
+      <%#= f.check_box :categories, {:style=>"width:5%;"}, { multiple: true }, category.id %>
       <br>
     <% end %>
   </div>
   <div class="checkbox" style="padding-left:0px;">
     <b>Location:</b><br>
+      <%#= f.collection_check_boxes :locations, Location.all, :id, :name do |cb| %>
+        <%#= cb.label(class:"checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text}%>
+      <% #end %>
     <% @location.each do |location| %>
-      <%= f.label :location, "#{location.name}", :style=>"padding-left:0px;" %>
-      <%# f.check_box :location_id, {:style=>"width:5%;"}, "#{location.id}","#{location.id}" %>
-      <%= f.check_box :location,{:style=>"width:5%;"}, { multiple: true }, location.id %>
+      <%= check_box_tag "location[location][]",location,@course.locations.include?(location) %>
+      <%= location.name %>
+      <%#= f.label :location, "#{location.name}", :style=>"padding-left:0px;" %>
+      <%#= f.check_box :locations,{:style=>"width:5%;"}, { multiple: true }, location.id %>
       <br>
     <% end %>
 

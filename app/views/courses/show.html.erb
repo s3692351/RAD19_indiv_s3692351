@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @course.name %>
@@ -9,6 +7,3 @@
 <% if @course.courseImage.attached?%>
   <image src="<%=(url_for(@course.courseImage))%>">
 <% end %>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>

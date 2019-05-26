@@ -14,33 +14,28 @@
   </div>
   <div class="checkbox" style="padding-left:0px;">
     <b>Category:</b><br>
-    <% @category.each do |category| %>
-      <%= check_box_tag "category[category][]",category,@course.categories.include?(category) %>
-      <%= category.title %>
-      <%#= f.label :category, "#{category.title}", :style=>"padding-left:0px;" %>
-      <%#= f.check_box :categories, {:style=>"width:5%;"}, { multiple: true }, category.id %>
-      <br>
+    <%= hidden_field_tag "course[category_ids][]",'' %>
+    <% Category.all.each do | category | %>
+      <%= check_box_tag "course[category_ids][]",category.id,@course.categories.include?(category.id) ,{:style=>"width:5%;"}%>
+      <%= f.label :category, "#{category.title}", :style=>"padding-left:2%;" %>
     <% end %>
+      <br>
   </div>
   <div class="checkbox" style="padding-left:0px;">
     <b>Location:</b><br>
-      <%#= f.collection_check_boxes :locations, Location.all, :id, :name do |cb| %>
-        <%#= cb.label(class:"checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text}%>
-      <% #end %>
-    <% @location.each do |location| %>
-      <%= check_box_tag "location[location][]",location,@course.locations.include?(location) %>
-      <%= location.name %>
-      <%#= f.label :location, "#{location.name}", :style=>"padding-left:0px;" %>
-      <%#= f.check_box :locations,{:style=>"width:5%;"}, { multiple: true }, location.id %>
+    <%= hidden_field_tag "course[location_ids][]",'' %>
+    <% Location.all.each do | location | %>
+      <%= check_box_tag "course[location_ids][]", location.id , @course.locations.include?(location.id),{:style=>"width:5%;"}%>
+      <%= f.label :location, "#{location.name}", :style=>"padding-left:2%;" %>
       <br>
     <% end %>
-
-    <%# f.check_box :location, { multiple: true }, @location.all.pluck(:id) %>
   </div>
   <div class="form-group">
     <%= f.label "Course Image" %>
     <%= f.file_field :courseImage %>
   </div>
+
+  <%= hidden_field_tag "created", DateTime.strptime(DateTime.now, "%d/%m/%y %R")%>
   <div class="actions">
     <%= f.submit "Create Course", class: "btn btn-primary" %>
   </div>

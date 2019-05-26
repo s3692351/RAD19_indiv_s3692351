@@ -1,4 +1,8 @@
-<% @courses.each do |course|%>
+<% @courses.each do |course|
+
+byebug
+
+%>
 <div class="media">
     <div class="media-left media-middle">
         <%= gravatar_for @user %>
@@ -8,7 +12,7 @@
        <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                <%= link_to course.name, edit_course_path(course) %>
+                <%= link_to course.name, course_path(course) %>
             </div>
             <div class="panel-body">
                 <b>Category:</b> 
@@ -28,8 +32,9 @@
                 <br>
                 <% if logged_in? %>
                     <div class="button">
-                        <%= link_to '' do %>
-                            <%= fa_icon "thumbs-o-up" %> 4
+                        <%= link_to upvote_course_path(course), method: :post  do %>
+                            <%= course.votes.count %>
+                            <%= fa_icon "thumbs-o-up"%> 
                         <% end %>
                         <%= link_to '' do %>
                             <%= fa_icon "thumbs-o-down" %> 0
@@ -37,7 +42,7 @@
                     </div>
                 <% else %>
                     <div class="button">
-                        <%= fa_icon "thumbs-o-up" %> 4
+                        <%= fa_icon "thumbs-o-up" %> <%= course.votes.count %>
                         <%= fa_icon "thumbs-o-down" %> 0
                     </div>
                 <% end %>

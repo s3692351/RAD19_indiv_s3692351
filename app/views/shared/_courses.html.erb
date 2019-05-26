@@ -1,8 +1,8 @@
-<% @user.courses.each do |course|%>
+<% obj.courses.each do |course|%>
 <div class="media">
     <div class="media-left media-middle">
-        <%= gravatar_for @user %>
-        <h3 class="panel-title">Coodinator Name: <%= @user.name %></h3>
+        <%= gravatar_for obj %>
+        <h3 class="panel-title">Coodinator Name: <%= obj.name %></h3>
     </div>
     <div class="media-body">
        <div class="panel panel-default">
@@ -10,10 +10,16 @@
                 <h3 class="panel-title"><%= course.name %></h3>
             </div>
             <div class="panel-body">
-                <b>Category:</b> <%= course.category.title %>
+                <b>Category:</b> 
+                 <% course.categories.each do |cat| %>
+                    <%= cat.title %>
+                <% end %>
                 <br>
 
-                <b>Location:</b> <%= course.location.name %>
+                 <b>Location:</b> 
+                 <% course.locations.each do |loc| %>
+                    <%= loc.name %>
+                <% end %>
                 <br>
                 <b>Created:</b> <%= time_ago_in_words(course.created) %> ago
                 <br>
@@ -22,7 +28,7 @@
                 <% if logged_in? %>
                     <div class="button">
                         <%= link_to '' do %>
-                            <%= fa_icon "thumbs-o-up" %> 4
+                            <%= fa_icon "thumbs-o-up" %> <%= course.votes.count %>
                         <% end %>
                         <%= link_to '' do %>
                             <%= fa_icon "thumbs-o-down" %> 0
@@ -30,7 +36,7 @@
                     </div>
                 <% else %>
                     <div class="button">
-                        <%= fa_icon "thumbs-o-up" %> 4
+                        <%= fa_icon "thumbs-o-up" %> <%= course.votes.count %>
                         <%= fa_icon "thumbs-o-down" %> 0
                     </div>
                 <% end %>

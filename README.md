@@ -12,6 +12,8 @@
 
 
 
+
+
 -----> Ruby app detected
 
 -----> Compiling Ruby/Rails
@@ -190,21 +192,11 @@
 
        Download Yarn at https://yarnpkg.com/en/docs/install
 
-       I, [2019-05-27T13:04:30.542272 #259]  INFO -- : Writing /tmp/build_72e968a6901655479d4dcc0a74093b02/public/assets/application-2a280126206fdf35788e713b01ba6a4ec9ec83aeacf4da7691413112e63cb98d.js
-
-       I, [2019-05-27T13:04:30.542894 #259]  INFO -- : Writing /tmp/build_72e968a6901655479d4dcc0a74093b02/public/assets/application-2a280126206fdf35788e713b01ba6a4ec9ec83aeacf4da7691413112e63cb98d.js.gz
-
-       I, [2019-05-27T13:04:36.628316 #259]  INFO -- : Writing /tmp/build_72e968a6901655479d4dcc0a74093b02/public/assets/application-6ab225b07063472b4ba2a0e3c00fa68944844a02e193928032c3f710308e7310.css
-
-       I, [2019-05-27T13:04:36.628576 #259]  INFO -- : Writing /tmp/build_72e968a6901655479d4dcc0a74093b02/public/assets/application-6ab225b07063472b4ba2a0e3c00fa68944844a02e193928032c3f710308e7310.css.gz
-
-       Asset precompilation completed (12.18s)
+       Asset precompilation completed (1.37s)
 
        Cleaning assets
 
        Running: rake assets:clean
-
-       I, [2019-05-27T13:04:37.547136 #283]  INFO -- : Removed application-e6a7aec137f61293b81f972b670562f19cf1127224aa4b9d1e4532f6f02bb6e2.js
 
 -----> Detecting rails configuration
 
@@ -266,7 +258,6 @@
 
 -----> Launching...
 
-       Released v14
+       Released v15
 
        https://limitless-escarpment-19651.herokuapp.com/ deployed to Heroku
-

@@ -1,12 +1,11 @@
 <% provide(:title, "Courses") %>
-<div class="container">
-<h1 style="text-align:center;">All Courses</h1>
-   <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><%= link_to 'Course', courses_path%></li>
-        <li role="presentation"><%= link_to 'Coordinators', '#' %></li>
-    </ul>
-    <div id="content">
+<div id="content">
+    <div class="container">
+        <h1 style="text-align:center;">All Courses</h1>
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active" id="course"><%= link_to 'Course', courses_path%></li>
+                <li role="presentation" id="coordinator"><%= link_to 'Coordinators', coordinator_path, remote: true %></li>
+            </ul>
         <%= render 'course', obj:@course%>
-        <p><%#= @course.likes.count %> <%#= (@course.likes.count) == 1 ? 'Like' : 'Likes'%></p>
     </div>
 </div>

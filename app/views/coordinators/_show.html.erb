@@ -1,0 +1,19 @@
+<% provide(:title, "Coordinators") %>
+<div id="content">
+    <div class="container">
+        <h1 style="text-align:center;">All Coordinators</h1>
+            <ul class="nav nav-tabs">
+                <li role="presentation"><%= link_to 'Course', courses_path%></li>
+                <li role="presentation" class="active"><%= link_to 'Coordinators', coordinator_path, remote: true %></li>
+            </ul>
+            <div class="user-list">
+              <% User.all.each do |user| %>
+                <div class="user" >
+                  <%= gravatar_for(user) %>
+                  <br>
+                  Coordinator Name: <%= user.name.capitalize %>
+                </div>
+              <% end %>
+            </div>
+    </div>
+</div>

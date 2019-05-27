@@ -10,7 +10,8 @@ class CoursesController < ApplicationController
     @user = User.first
   end
 
-  def show; end
+  def show
+  end
 
   # GET /courses/new
   def new

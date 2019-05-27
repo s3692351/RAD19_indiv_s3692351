@@ -7,5 +7,6 @@
     </ul>
     <div id="content">
         <%= render 'course', obj:@course%>
+        <p><%#= @course.likes.count %> <%#= (@course.likes.count) == 1 ? 'Like' : 'Likes'%></p>
     </div>
 </div>

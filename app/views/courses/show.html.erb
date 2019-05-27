@@ -1,4 +1,6 @@
 <p>
+<%#= button_to 'Like', course_likes_path(@course), method: :post %>
+<p><%= @course.likes.count %> <%= (@course.likes.count) == 1 ? 'Like' : 'Likes'%></p>
   <strong>Name:</strong>
   <%= @course.name %>
 </p>

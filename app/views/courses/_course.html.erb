@@ -28,14 +28,18 @@
                 <br>
                 <% if logged_in? %>
                     <div class="button">
-                        <%= link_to upvote_course_path(course), method: :post  do %>
-                            <%= course.votes.count %>
-                            <%= fa_icon "thumbs-o-up"%> 
-                        <% end %>
-                        <%= link_to downvote_course_path(course), method: :post do %>
-                            <%= course.votes.count %>
+                      <% pre_like = course.likes.find { |like| like.user_id == current_user.id} %>
+                        <% if !pre_like %>
+                            <%= link_to course_likes_path(course),method: :post do %>
+                                <%= course.likes.count %>
+                                <%= fa_icon "thumbs-o-up"%> 
+                            <% end %>
+                        <% else %>
+                        <%= link_to course_like_path(course,pre_like), method: :delete do %>
+                            <%= course.likes.count %>
                             <%= fa_icon "thumbs-o-down" %> 
                         <% end %>
+                        <%end %>
                     </div>
                 <% else %>
                     <div class="button">
@@ -43,7 +47,10 @@
                         <%= fa_icon "thumbs-o-down" %> 0
                     </div>
                 <% end %>
-                
+
+                <% if course.user == current_user %>
+                    <%= link_to 'Edit Course' %>
+                <% end %>
             </div>
         </div>
     </div>

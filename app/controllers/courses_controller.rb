@@ -2,6 +2,8 @@
 
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[show edit update destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+
 
   def index
     @courses = Course.all
@@ -65,5 +67,12 @@ class CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit(:name, :prerequisite, :description, :courseImage, category_ids: [], location_ids: [])
+  end
+
+  def require_same_user
+    if current_user != @course.user
+      flash[:danger] = "You can only edit or delete your own course."
+      redirect_to course_path
+    end
   end
 end

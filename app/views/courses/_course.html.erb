@@ -49,7 +49,9 @@
                 <% end %>
 
                 <% if course.user == current_user %>
-                    <%= link_to 'Edit Course' %>
+                    <%= link_to edit_course_path(course) do %>
+                        <%= fa_icon "edit" %> Edit Course
+                    <% end %>  
                 <% end %>
             </div>
         </div>

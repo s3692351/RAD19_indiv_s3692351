@@ -46,6 +46,11 @@
                         <%= fa_icon "thumbs-o-down" %> 0
                     </div>
                 <% end %>
+                 <% if course.user == current_user %>
+                    <%= link_to edit_course_path(course) do %>
+                        <%= fa_icon "edit" %> Edit Course
+                    <% end %>  
+                <% end %>
                 
             </div>
         </div>

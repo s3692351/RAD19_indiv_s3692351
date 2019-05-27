@@ -20,7 +20,7 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><%= fa_icon "location-arrow" %> Locations<span class="caret"></span></a>
         <ul class="dropdown-menu">
-           <% @locations.each do| location| %>
+          <% @locations.each do| location| %>
             <li><%= link_to location.name, location_path(location.id) %></li>
           <% end %>
           <% if logged_in? %>

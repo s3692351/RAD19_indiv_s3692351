@@ -16,7 +16,7 @@
     <b>Category:</b><br>
     <%= hidden_field_tag "course[category_ids][]",'' %>
     <% Category.all.each do | category | %>
-      <%= check_box_tag "course[category_ids][]",category.id,@course.categories.include?(category.id) ,{:style=>"width:5%;"}%>
+      <%= check_box_tag "course[category_ids][]",category.id,@course.categories.include?(category),{:style=>"width:5%;"}%>
       <%= f.label :category, "#{category.title}", :style=>"padding-left:2%;" %>
     <% end %>
       <br>
@@ -25,7 +25,7 @@
     <b>Location:</b><br>
     <%= hidden_field_tag "course[location_ids][]",'' %>
     <% Location.all.each do | location | %>
-      <%= check_box_tag "course[location_ids][]", location.id , @course.locations.include?(location.id),{:style=>"width:5%;"}%>
+      <%= check_box_tag "course[location_ids][]", location.id , @course.locations.include?(location),{:style=>"width:5%;"}%>
       <%= f.label :location, "#{location.name}", :style=>"padding-left:2%;" %>
       <br>
     <% end %>

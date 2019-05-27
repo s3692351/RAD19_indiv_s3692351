@@ -1,10 +1,61 @@
-<p>
-<%#= button_to 'Like', course_likes_path(@course), method: :post %>
-<p><%= @course.likes.count %> <%= (@course.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
+<% provide(:title, @course.name) %>
+<h1 style="text-align:center;"><%= @course.name %></h1>
+<hr>
+<div class="well">
+  <div class="course-c">
+    <span><%= gravatar_for @course.user %></span><br>
+    <h4>Course Coordinator: <%= @course.user.name %></h4>
+  </div>
+  <div class="course-container">
+    <div class="course-thumb">
+      <% if @course.courseImage.attached?%>
+        <%= image_tag @course.courseImage, size: "150x150" %>
+      <% end %>
+    </div>
+    <div class="post-content">
+      <div class="sub-content">
+        <b>Prerequisite:</b>
+        <%= @course.prerequisite %>
+      </div>
+      <div class="sub-content">
+        <b>Category:</b>
+          <% @course.categories.each do |coursecat| %>
+            <%= coursecat.title%>
+          <% end %>
+      </div>
+      <div class="sub-content">
+        <b>Location:</b>
+          <% @course.locations.each do |courseloc| %>
+            <%= courseloc.name%>
+          <% end %>
+      </div>
+      <div class="sub-content">
+        <b>Description</b>
+          <p><%= @course.description %></p>
+      </div>
+      <div class="likes-sub">
+      <!-- TODO: Fix Likes!-->
+        <% pre_like = @course.likes.find { |like| like.user_id == current_user.id} %>
+          <% if !pre_like %>
+              <%= link_to course_likes_path(@course),method: :post do %>
+                  <%= @course.likes.count %>
+                  <%= fa_icon "thumbs-o-up"%> 
+              <% end %>
+          <% else %>
+          <%= link_to course_like_path(@course,pre_like), method: :delete do %>
+              <%= @course.likes.count %>
+              <%= fa_icon "thumbs-o-down" %> 
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+    <% if @course.user == current_user %>
+    <button class="btn btn-primary">
+      <%= link_to edit_course_path(@course) do %>
+        <span style="color:white;"> <%= fa_icon "edit" %> Edit Course</span>
+      <% end %>  
+    </button>
+    <% end %>
+</div>
 
-  <% if @course.courseImage.attached?%>
-  <image src="<%=(url_for(@course.courseImage))%>">
-<% end %>

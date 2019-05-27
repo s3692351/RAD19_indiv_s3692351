@@ -32,10 +32,10 @@
   </div>
   <div class="form-group">
     <%= f.label "Course Image" %>
-    <%= f.file_field :courseImage %>
+    <%= f.file_field :courseImage%>
   </div>
 
-  <%= hidden_field_tag "created", DateTime.strptime(DateTime.now, "%d/%m/%y %R")%>
+
   <div class="actions">
     <%= f.submit "Create Course", class: "btn btn-primary" %>
   </div>

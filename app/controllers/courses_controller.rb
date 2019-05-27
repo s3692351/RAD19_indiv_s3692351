@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     @course.user = current_user
-    @course.courseImage.attach(params[:courseImage])
+    @course.created = DateTime.now
     if @course.save
       flash[:success] = "New Course #{@course.name} added."
       redirect_to root_path
@@ -37,7 +37,6 @@ class CoursesController < ApplicationController
 
   def update
     respond_to do |format|
-      @course.courseImage.attach(params[:courseImage])
       if @course.update(course_params)
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
@@ -69,6 +68,6 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:name, :prerequisite, :description, :courseImage, :created, category_ids: [], location_ids: [])
+    params.require(:course).permit(:name, :prerequisite, :description, :courseImage, category_ids: [], location_ids: [])
   end
 end

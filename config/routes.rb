@@ -12,10 +12,5 @@ Rails.application.routes.draw do
   resources :locations, except: :index
   resources :users
   resources :categories, except: :index
-  resources :courses do
-    member do
-      post 'upvote'
-      post 'downvote'
-    end
-  end
+  resources :courses
 end

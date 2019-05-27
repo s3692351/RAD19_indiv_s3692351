@@ -32,8 +32,9 @@
                             <%= course.votes.count %>
                             <%= fa_icon "thumbs-o-up"%> 
                         <% end %>
-                        <%= link_to '' do %>
-                            <%= fa_icon "thumbs-o-down" %> 0
+                        <%= link_to downvote_course_path(course), method: :post do %>
+                            <%= course.votes.count %>
+                            <%= fa_icon "thumbs-o-down" %> 
                         <% end %>
                     </div>
                 <% else %>

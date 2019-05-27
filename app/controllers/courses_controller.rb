@@ -55,11 +55,7 @@ class CoursesController < ApplicationController
     end
   end
 
-  def upvote
-    @course = Course.find(params[:id])
-    @course.votes.create
-    redirect_to courses_path
-  end
+
 
   private
 

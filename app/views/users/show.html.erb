@@ -1,5 +1,7 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, @user.name.capitalize) %>
   <div class="container">
+    <h1 style="text-align:center;">Coordinator: <%= @user.name.capitalize %></h1>
+    <div class="profile"><%= gravatar_for @user %></div>
     <%= render 'shared/courses', obj:@user %>
   </div>
 

@@ -13,8 +13,7 @@ class LikesController < ApplicationController
   end
 
   def already_liked?
-    Like.where(user_id: current_user.id, course_id:
-    params[:course_id]).exists?
+    Like.where(user_id: current_user.id, course_id: params[:course_id]).exists?
   end
 
   def destroy

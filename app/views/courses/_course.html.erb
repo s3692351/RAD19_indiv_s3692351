@@ -43,8 +43,11 @@
                     </div>
                 <% else %>
                     <div class="button">
+                        <% if course.votes.count>0 %>
                         <%= fa_icon "thumbs-o-up" %> <%= course.votes.count %>
-                        <%= fa_icon "thumbs-o-down" %> 0
+                        <%= fa_icon "thumbs-o-down" %> <%= course.votes.count %>
+                        <% end %>
+
                     </div>
                 <% end %>
 

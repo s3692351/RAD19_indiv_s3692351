@@ -30,7 +30,6 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @course.user = current_user
     @course.created = DateTime.now
-    byebug
     if @course.save
       flash[:success] = "New Course #{@course.name} added."
       redirect_to root_path

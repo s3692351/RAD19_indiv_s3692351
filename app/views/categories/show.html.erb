@@ -5,8 +5,8 @@
  <% @category.courses.each do |catCourse|%>
 <div class="media">
     <div class="media-left media-middle">
-        <img src="https://secure.gravatar.com/avatar/f808bc206f99b6ba71fb83a90dacb381">
-        <h3 class="panel-title">Coodinator Name: Andy Song</h3>
+        <%= gravatar_for catCourse.user %>
+        <h3 class="panel-title">Coodinator Name: <%=catCourse.user.name%></h3>
     </div>
     <div class="media-body">
        <div class="panel panel-default">
@@ -39,6 +39,14 @@
                     </div>
                 <% end %>
                 </div>
+                 <% if catCourse.user == current_user %>
+                    <%= link_to edit_course_path(catCourse) do %>
+                        <%= fa_icon "edit" %> Edit Course
+                    <% end %>  
+                    <%= link_to course_path(catCourse),method: :delete do%>
+                        <%= fa_icon "Delete" %> Delete Course
+                    <% end %>
+                <% end %>
             </div>
         </div>
     </div>

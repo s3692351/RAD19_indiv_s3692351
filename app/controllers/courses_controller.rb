@@ -52,13 +52,9 @@ class CoursesController < ApplicationController
 
   def destroy
     @course.destroy
-    respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = "Course was deleted."
+    redirect_to courses_path
   end
-
-
 
   private
 

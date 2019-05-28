@@ -36,7 +36,14 @@
                           <%= fa_icon "thumbs-o-down" %> 0
                       </div>
                   <% end %>
-                  
+                   <% if location.user == current_user %>
+                    <%= link_to edit_course_path(location) do %>
+                        <%= fa_icon "edit" %> Edit Course
+                    <% end %>  
+                    <%= link_to course_path(location),method: :delete do%>
+                        <%= fa_icon "Delete" %> Delete Course
+                    <% end %>
+                <% end %>
               </div>
           </div>
       </div>

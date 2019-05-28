@@ -10,5 +10,5 @@ class Course < ApplicationRecord
   validates :location_ids, presence: true
   validates :name, presence: true, length: { minimum: 10, maximum: 30 }
   validates :prerequisite, presence: true, length: { minimum: 10, maximum: 30 }
-  validates :description, presence: true, length: { minimum: 10, maximum: 30 }
+  validates :description, presence: true, length: { minimum: 10, maximum: 1000 }
 end

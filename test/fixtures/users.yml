@@ -6,7 +6,7 @@
 #
 sogyal: 
   name: "Sogyal Sherpa"
-  email: "sogyal@rmit.edu.au"
+  email: "sogyal.sherpa@rmit.edu.au"
   password_digest: <%= User.digest('password') %>
 # column: value
 #

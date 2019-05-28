@@ -4,7 +4,7 @@ require 'test_helper'
 
 class CoursesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @course = Courses.find(1)
+    @course = Course.find(298486374)
   end
 
   test 'should get index' do

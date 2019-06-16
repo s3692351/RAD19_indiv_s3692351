@@ -3,8 +3,7 @@ version: 0.1
 phases:
   install:
     runtime-versions:
-      ruby: 2.4.1
-      rails: 5.2.3
+      ruby: 2.6
     commands:
       - echo Starting postgresql...
       - service postgresql restart

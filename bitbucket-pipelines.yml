@@ -8,6 +8,13 @@ image: ruby:2.5.1
 pipelines:
   default:
     - step:
+        name: Deploy to test
+        deployment: test
+        # trigger: manual  # Uncomment to make this a manual deployment.
+        script:
+          - echo "Deploying to test environment"
+          - bundle update --bundler
+    - step:
         caches:
           - bundler
         script: # Modify the commands below to build your repository.

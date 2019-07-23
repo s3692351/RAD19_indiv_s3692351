@@ -15,8 +15,6 @@ pipelines:
           - echo "Deploying to test environment"
           - bundle update --bundler
     - step:
-        caches:
-          - bundler
         script: # Modify the commands below to build your repository.
           - bundle update
 	  - bundle install

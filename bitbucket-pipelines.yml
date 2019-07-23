@@ -18,7 +18,8 @@ pipelines:
         caches:
           - bundler
         script: # Modify the commands below to build your repository.
-          - bundle install
+          - bundle update
+	  - bundle install
 
 definitions:
   caches:

@@ -17,7 +17,7 @@ pipelines:
     - step:
         script: # Modify the commands below to build your repository.
           - bundle update
-	  - bundle install
+          - bundle install
 
 definitions:
   caches:

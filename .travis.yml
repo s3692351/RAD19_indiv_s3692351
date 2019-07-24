@@ -3,4 +3,4 @@
     - gem install bundler
 language: ruby
 rvm:
-  -2.5.1
+  -2.4.1
